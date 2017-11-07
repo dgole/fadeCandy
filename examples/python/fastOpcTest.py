@@ -20,8 +20,8 @@ class Pixels():
 		alpha[alpha > 0.0 ] = alphaRise
 		alpha[alpha <= 0.0] = alphaDecay
 		self.array = alpha*arrayNew + (1.0-alpha)*self.array
-	def getArray(self):
-		return np.clip(self.array, self.floor, 255)
+	def getArrayForDisplay(self):
+		self.array[self.array < self.floor] = 0
 	
 
 n = 1
@@ -37,6 +37,6 @@ while True:
 		dir*=-1
 	arrayTheo = np.roll(arrayTheo, dir, axis=0)
 	pixels.update(arrayTheo, 1.0, 0.5)
-	client.putPixels(0, pixels.getArray())
+	client.putPixels(0, pixels.getArrayForDisplay())
 	n+=dir
 	time.sleep(0.05)
