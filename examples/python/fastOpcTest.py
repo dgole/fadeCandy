@@ -16,4 +16,4 @@ pixels[10, 2] = 255
 while True:
 	pixels = np.roll(pixels, 1, axis=0)
 	client.putPixels(0, pixels)
-	time.sleep(0.005)
+	time.sleep(0.0025)
