@@ -33,7 +33,7 @@ while True:
 	elif n == 0:
 		dir*=-1
 	arrayTheo = np.roll(arrayTheo, dir, axis=0)
-	pixels.update(arrayTheo, 1.0, 1.0)
+	pixels.update(arrayTheo, 1.0, 0.5)
 	client.putPixels(0, pixels.array.astype(int))
 	n+=dir
 	time.sleep(0.2)
