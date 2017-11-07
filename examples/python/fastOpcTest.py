@@ -27,7 +27,7 @@ while True:
 		dir*=-1
 	elif n == 0:
 		dir*=-1
-	pixels.set(np.roll(pixels.array, dir, axis=0), 1.0)
+	pixels.set(np.roll(pixels.array, dir, axis=0), 0.5)
 	client.putPixels(0, pixels.array)
 	n+=dir
 	time.sleep(0.2)
