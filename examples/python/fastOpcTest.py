@@ -41,4 +41,4 @@ while True:
 	pixels.update(arrayTheo, 0.7, 0.3)
 	client.putPixels(0, pixels.getArrayForDisplay())
 	n+=dir
-	time.sleep(0.05)
+	time.sleep(0.005)
