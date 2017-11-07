@@ -13,4 +13,4 @@ pixels[0, 10] = 100
 pixels[1, 11] = 100
 pixels[2, 12] = 100
 
-client.putPixels(1, pixels)
+client.putPixels(0, pixels)
