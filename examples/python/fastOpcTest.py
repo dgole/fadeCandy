@@ -16,8 +16,8 @@ class Pixels():
 		self.array = np.zeros([self.numLEDs, 3])
     def update(self, arrayNew, alphaRise, alphaDecay):
 	alpha = arrayNew - self.array
-	alpha[alpha > 0.0 ] = alpha_rise
-	alpha[alpha <= 0.0] = alpha_decay
+	alpha[alpha > 0.0 ] = alphaRise
+	alpha[alpha <= 0.0] = alphaDecay
 	self.array = alpha*arrayNew + (1.0-alpha)*self.array 
 
 n = 1
