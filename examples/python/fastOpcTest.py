@@ -10,7 +10,7 @@ client = fastopc.FastOPC('localhost:7890')
 
 pixels = np.zeros([numLEDs, 3])
 
-class Pixels(numLEDs):
+class Pixels():
     def __init__(self, numLEDs):
 		self.numLEDs = numLEDs
 		self.array = np.zeros([self.numLEDs])
