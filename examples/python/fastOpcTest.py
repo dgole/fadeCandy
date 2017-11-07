@@ -26,7 +26,7 @@ class Pixels():
 
 n = 1
 dir = 1
-pixels = Pixels(numLEDs, 5)
+pixels = Pixels(numLEDs, 20)
 arrayTheo = np.zeros_like(pixels.array)
 arrayTheo[n,2] = 255
 
