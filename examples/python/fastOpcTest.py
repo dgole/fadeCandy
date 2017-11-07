@@ -33,6 +33,6 @@ while True:
 		dir*=-1
 	pixels.update(np.roll(pixels.array, dir, axis=0), 1.0, 0.7)
 	print(pixels.array[:,2])
-	client.putPixels(0, pixels.array)
+	client.putPixels(0, pixels.array.astype(int))
 	n+=dir
 	time.sleep(0.2)
