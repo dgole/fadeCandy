@@ -13,5 +13,7 @@ pixels[10, 0] = 100
 pixels[11, 1] = 100
 pixels[12, 2] = 100
 
-client.putPixels(0, pixels)
-time.sleep(100)
+while True:
+	pixels = np.roll(pixels, 1)
+	client.putPixels(0, pixels)
+	time.sleep(0.01)
