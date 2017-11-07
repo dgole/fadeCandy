@@ -14,4 +14,4 @@ pixels[11, 1] = 100
 pixels[12, 2] = 100
 
 client.putPixels(0, pixels)
-time.wait(100)
+time.sleep(100)
