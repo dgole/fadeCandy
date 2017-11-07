@@ -19,7 +19,7 @@ class Pixels():
 		alpha[alpha > 0.0 ] = alphaRise
 		alpha[alpha <= 0.0] = alphaDecay
 		self.array = alpha*arrayNew + (1.0-alpha)*self.array
-	def getArray():
+	def getArray(self):
 		return np.clip(self.array, floor, 255)
 	
 
