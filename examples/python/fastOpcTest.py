@@ -31,7 +31,7 @@ while True:
 		dir*=-1
 	elif n == 0:
 		dir*=-1
-	pixels.update(np.roll(pixels.array, dir, axis=0), 0.3, 0.3)
+	pixels.update(np.roll(pixels.array, dir, axis=0), 1.0, 0.3)
 	print(pixels.array[:,2])
 	client.putPixels(0, pixels.array)
 	n+=dir
