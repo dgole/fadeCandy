@@ -17,7 +17,7 @@ pixels[n, 2] = 255
 while True:
 	if n == 59:
 		dir*=-1
-	elif n == 0
+	elif n == 0:
 		dir*=-1
 	pixels = np.roll(pixels, dir, axis=0)
 	client.putPixels(0, pixels)
