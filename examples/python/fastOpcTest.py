@@ -11,14 +11,14 @@ client = fastopc.FastOPC('localhost:7890')
 pixels = np.zeros([numLEDs, 3])
 
 class Pixels():
-    def __init__(self, numLEDs):
+	def __init__(self, numLEDs):
 		self.numLEDs = numLEDs
 		self.array = np.zeros([self.numLEDs, 3])
-    def update(self, arrayNew, alphaRise, alphaDecay):
-	alpha = arrayNew - self.array
-	alpha[alpha > 0.0 ] = alphaRise
-	alpha[alpha <= 0.0] = alphaDecay
-	self.array = alpha*arrayNew + (1.0-alpha)*self.array 
+	def update(self, arrayNew, alphaRise, alphaDecay):
+		alpha = arrayNew - self.array
+		alpha[alpha > 0.0 ] = alphaRise
+		alpha[alpha <= 0.0] = alphaDecay
+		self.array = alpha*arrayNew + (1.0-alpha)*self.array 
 
 n = 1
 dir = 1
