@@ -9,11 +9,9 @@ numLEDs = 60
 client = fastopc.FastOPC('localhost:7890')
 
 pixels = np.zeros([numLEDs, 3])
-pixels[10, 0] = 255
-pixels[10, 1] = 255
 pixels[10, 2] = 255
 
 while True:
 	pixels = np.roll(pixels, 1, axis=0)
 	client.putPixels(0, pixels)
-	time.sleep(0.0025)
+	time.sleep(0.005)
