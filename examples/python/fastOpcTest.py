@@ -11,7 +11,7 @@ client = fastopc.FastOPC('localhost:7890')
 pixels = np.zeros([numLEDs, 3])
 
 class Pixels():
-	def __init__(self, numLEDs):
+	def __init__(self, numLEDs, floor):
 		self.numLEDs = numLEDs
 		self.array = np.zeros([self.numLEDs, 3])
 	def update(self, arrayNew, alphaRise, alphaDecay):
@@ -19,11 +19,13 @@ class Pixels():
 		alpha[alpha > 0.0 ] = alphaRise
 		alpha[alpha <= 0.0] = alphaDecay
 		self.array = alpha*arrayNew + (1.0-alpha)*self.array
+	def getArray():
+		return np.clip(self.array, floor, 255)
 	
 
 n = 1
 dir = 1
-pixels = Pixels(numLEDs)
+pixels = Pixels(numLEDs, 5)
 arrayTheo = np.zeros_like(pixels.array)
 arrayTheo[n,2] = 255
 
@@ -34,6 +36,6 @@ while True:
 		dir*=-1
 	arrayTheo = np.roll(arrayTheo, dir, axis=0)
 	pixels.update(arrayTheo, 1.0, 0.5)
-	client.putPixels(0, pixels.array.astype(int))
+	client.putPixels(0, pixels.getArray())
 	n+=dir
 	time.sleep(0.05)
