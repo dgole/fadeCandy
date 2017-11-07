@@ -18,21 +18,21 @@ class Pixels():
 		alpha = arrayNew - self.array
 		alpha[alpha > 0.0 ] = alphaRise
 		alpha[alpha <= 0.0] = alphaDecay
-		self.array = alpha*arrayNew + (1.0-alpha)*self.array 
+		self.array = alpha*arrayNew + (1.0-alpha)*self.array
+	
 
 n = 1
 dir = 1
 pixels = Pixels(numLEDs)
-pixels.array[n,2] = 255
-print(pixels.array[:,2])
+arrayTheo = np.zeros_like(pixels.array)
+arrayTheo[n,2] = 255
 
 while True:
 	if n == 59:
 		dir*=-1
 	elif n == 0:
 		dir*=-1
-	pixels.update(np.roll(pixels.array, dir, axis=0), 1.0, 0.95)
-	print(pixels.array[:,2])
+	pixels.update(np.roll(arrayTheo, dir, axis=0), 1.0, 0.95)
 	client.putPixels(0, pixels.array.astype(int))
 	n+=dir
 	time.sleep(0.2)
