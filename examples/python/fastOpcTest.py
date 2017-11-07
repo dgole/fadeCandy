@@ -22,4 +22,4 @@ while True:
 	pixels = np.roll(pixels, dir, axis=0)
 	client.putPixels(0, pixels)
 	n+=dir
-	time.sleep(0.05)
+	time.sleep(0.2)
