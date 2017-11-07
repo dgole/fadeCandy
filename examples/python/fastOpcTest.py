@@ -13,7 +13,7 @@ pixels = np.zeros([numLEDs, 3])
 class Pixels():
     def __init__(self, numLEDs):
 		self.numLEDs = numLEDs
-		self.array = np.zeros([self.numLEDs])
+		self.array = np.zeros([self.numLEDs, 3])
     def set(array1, alpha):
 		self.array = alpha*array1 + (alpha-1.0)*array 
 
