@@ -13,6 +13,7 @@ pixels = np.zeros([numLEDs, 3])
 class Pixels():
 	def __init__(self, numLEDs, floor):
 		self.numLEDs = numLEDs
+		self.floor = floor
 		self.array = np.zeros([self.numLEDs, 3])
 	def update(self, arrayNew, alphaRise, alphaDecay):
 		alpha = arrayNew - self.array
@@ -20,7 +21,7 @@ class Pixels():
 		alpha[alpha <= 0.0] = alphaDecay
 		self.array = alpha*arrayNew + (1.0-alpha)*self.array
 	def getArray(self):
-		return np.clip(self.array, floor, 255)
+		return np.clip(self.array, self.floor, 255)
 	
 
 n = 1
