@@ -14,8 +14,11 @@ class Pixels():
     def __init__(self, numLEDs):
 		self.numLEDs = numLEDs
 		self.array = np.zeros([self.numLEDs, 3])
-    def update(self, array1, alpha):
-		self.array = alpha*array1 + (1.0-alpha)*self.array 
+    def update(self, arrayNew, alphaRise, alphaDecay):
+	alpha = arrayNew - self.array
+	alpha[alpha > 0.0 ] = alpha_rise
+	alpha[alpha <= 0.0] = alpha_decay
+	self.array = alpha*arrayNew + (1.0-alpha)*self.array 
 
 n = 1
 dir = 1
@@ -28,7 +31,7 @@ while True:
 		dir*=-1
 	elif n == 0:
 		dir*=-1
-	pixels.update(np.roll(pixels.array, dir, axis=0), 0.5)
+	pixels.update(np.roll(pixels.array, dir, axis=0), 1.0, 1.0)
 	print(pixels.array[:,2])
 	client.putPixels(0, pixels.array)
 	n+=dir
