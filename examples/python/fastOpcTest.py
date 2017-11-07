@@ -21,6 +21,7 @@ n = 1
 dir = 1
 pixels = Pixels(numLEDs)
 pixels.array[n,2] = 255
+print(pixels.array[:,2])
 
 while True:
 	if n == 59:
@@ -28,6 +29,7 @@ while True:
 	elif n == 0:
 		dir*=-1
 	pixels.set(np.roll(pixels.array, dir, axis=0), 0.5)
+	print(pixels.array[:,2])
 	client.putPixels(0, pixels.array)
 	n+=dir
 	time.sleep(0.2)
