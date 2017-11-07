@@ -8,9 +8,9 @@ import numpy as np
 numLEDs = 60
 client = fastopc.FastOPC('localhost:7890')
 
-pixels = np.zeros([3, numLEDs])
-pixels[0, 10] = 100
-pixels[1, 11] = 100
-pixels[2, 12] = 100
+pixels = np.zeros([numLEDs, 3])
+pixels[10, 0] = 100
+pixels[11, 1] = 100
+pixels[12, 2] = 100
 
 client.putPixels(0, pixels)
