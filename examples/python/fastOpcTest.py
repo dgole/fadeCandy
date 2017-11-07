@@ -15,7 +15,7 @@ class Pixels():
 		self.numLEDs = numLEDs
 		self.array = np.zeros([self.numLEDs, 3])
     def set(self, array1, alpha):
-		self.array = alpha*array1 + (alpha-1.0)*array 
+		self.array = alpha*array1 + (alpha-1.0)*self.array 
 
 n = 1
 dir = 1
