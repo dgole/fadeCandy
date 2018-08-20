@@ -26,21 +26,15 @@ class Pixels():
 		return returnArray
 	
 
-n = 1
-dir = 1
 pixels = Pixels(numLEDs, 20)
 arrayTheo = np.zeros_like(pixels.array)
-color=2
-arrayTheo[n,color] = 255
+for i in range(0,8):
+	base=64*i 
+	arrayTheo[base:base+i+1]  = [0,0,255]
 
 while True:
-	if n == (numLEDs-1):
-		dir*=-1
-	elif n == 0:
-		dir*=-1
-		arrayTheo=np.roll(arrayTheo, 1, axis=1)
-	arrayTheo = np.roll(arrayTheo, dir, axis=0)
-	pixels.update(arrayTheo, 0.7, 0.1)
+	pixels.update(arrayTheo, 1.0, 0.0)
 	client.putPixels(0, pixels.getArrayForDisplay())
-	n+=dir
-	time.sleep(0.005)
+	time.sleep(1)
+	client.putPixels(0, np.zeros_like(pixels.getArrayForDisplay()))
+	time.sleep(1)
